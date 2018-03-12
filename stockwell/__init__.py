@@ -19,29 +19,31 @@ from __future__ import division
 # import the methods implemented in C
 from st import st, ist, hilbert
 
-def stfreq(f,length, srate):
-	"""
+
+def stfreq(f, length, srate):
+    """
         [int] = stfreq(f,length, srate)
         Convert frequencies f in Hz into rows of the stockwell transform
-	given sampling rate srate and length of original array
+    given sampling rate srate and length of original array
 
         note: length * (1.0/srate)
-      	# in C this would be:  return floor(f * len / srate + .5);
+          # in C this would be:  return floor(f * len / srate + .5);
 
         """
-        # return int( f*(length//srate)+0.5)
-	return int(round(f*length/srate))
+    # return int( f*(length//srate)+0.5)
+    return int(round(f * length / srate))
+
 
 # row = int(f*length)/srate)
 # row*srate = f*length
 # f = row*srate/length
 
-def st_rowfreq(row,srate,length):
-	"""
-	for a row in a stockwell transform, give what frequency (Hz)
-	it corresponds to, given the sampling rate srate and the length of the original
-	array
-	"""
-	return row*srate/length
+def st_rowfreq(row, srate, length):
+    """
+    for a row in a stockwell transform, give what frequency (Hz)
+    it corresponds to, given the sampling rate srate and the length of the original
+    array
+    """
+    return row * srate / length
 
 # utilites/display functions in plot
